@@ -1,6 +1,6 @@
 "use strict";
 const Koa = require('koa');
-const config = require('./config.js');
+const config = require(__dirname+'/config.js');
 const bodyParser = require('koa-bodyparser');
 const mysql = require('mysql');
 const logger = require('koa-logger');
