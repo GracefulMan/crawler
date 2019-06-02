@@ -1,0 +1,57 @@
+需要去了解的知识：
+    1.scrapy
+    2.Bloom Filter(加速URL池过滤)
+    3.python-rq[https://github.com/rq/rq]
+    4.scrapy-redis[https://github.com/rmax/scrapy-redis]
+    5.python-goose[https://github.com/grangier/python-goose],Beautifulsoup
+    6.Mongodb
+    7.XPath
+    8.selenium,phantomJS
+    9.pybrain
+
+近期任务：
+    1.构建ip代理池
+
+ip代理池模块划分：
+    1.爬虫池
+    2.验证池
+    3.储存--mysql
+爬虫池设计：
+    爬虫函数:getHtml--requests(headers池)
+    解析函数:parse--Xpath
+    维护的queue:
+        1.URL队列
+            去重设计--boomfilter
+        2.解析队列
+            构建解析类
+验证：
+    1.每天验证目前有效的数据
+API接口:
+    1.做有效验证
+    2.以API形式返回代理IP
+    3.同时写入数据库IP使用时间
+
+储存:
+    mysql数据库
+    每日更新
+    字段：
+    'IP', '端口', '匿名度', '类型', '国家', '省市', '运营商', '响应速度', '最后验证时间'
+
+
+
+
+文献网站：
+    https://ui.adsabs.harvard.edu/#search/q=year%3A2019&sort=date%20desc%2C%20bibcode%20desc&p_=0
+
+
+
+4月16日
+    1.完成mysql储存类
+    2.继续完善API类
+
+
+
+论文：
+    dblp
+    ieee
+    https://dblp.uni-trier.de/pers?pos=2307929
