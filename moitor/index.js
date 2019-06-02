@@ -1,10 +1,10 @@
 "use strict";
 const Koa = require('koa');
-const config = require('/Users/mahongying/Desktop/crawler/moitor/config.js');
+const config = require('./config.js');
 const bodyParser = require('koa-bodyparser');
 const mysql = require('mysql');
 const logger = require('koa-logger');
-const routers = require('/Users/mahongying/Desktop/crawler/moitor/router.js');
+const routers = require('./router.js');
 const parse = require('co-busboy');
 const fs=require('fs');
 const render = require('koa-ejs');
