@@ -4,7 +4,7 @@ const config = {
     database:{
         DATABASE:'ipProxy',
         USERNAME:'root',
-        PASSWORD:'mahongying',
+        PASSWORD:'password',
         PORT:'3306',
         HOST:'localhost'
     }
