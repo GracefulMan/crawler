@@ -1,5 +1,5 @@
 'use strict';
-const IpModel = require("./ipApi.js");
+const IpModel = require("../model/ipApi");
 const getIpByLocation = async ctx =>{
     let limit = ctx.query.limit || 10;
     let page = ctx.query.page || 1;
