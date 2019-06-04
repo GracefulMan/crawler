@@ -23,7 +23,7 @@ class ItcastSpider(scrapy.Spider):
         for url in res1:
             name = url.xpath("./text()").extract_first()
             tempurl = url.xpath(".//@href").extract()[0]
-            if re.match('IEEE',name,re.IGNORECASE):
+            if not re.match('IEEE',name,re.IGNORECASE):
                 item["journal"] = name
                 yield  scrapy.Request(
                     url=tempurl,
