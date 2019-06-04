@@ -62,15 +62,18 @@ class ItcastSpider(scrapy.Spider):
         #     f.close()
         base_url = 'https://ieeexplore.ieee.org/rest/document/'
         for each_item in js:
-            item["authors"] = each_item['info']['authors']['author']
-            item['title'] = each_item['info']['title']
-            item['venue'] = each_item['info']['venue']
-            item['year'] = each_item['info']['year']
-            item['url']=each_item['info']['ee']
-            #r = requests.get(url = each_item['info']['ee'],headers =USER_AGENT,timeout = 30,allow_redirects=False)
-            #item['url'] = r.headers['location']
-            #print(item)
-            yield item
+            try:
+                item["authors"] = each_item['info']['authors']['author']
+                item['title'] = each_item['info']['title']
+                item['venue'] = each_item['info']['venue']
+                item['year'] = each_item['info']['year']
+                item['url']=each_item['info']['ee']
+                #r = requests.get(url = each_item['info']['ee'],headers =USER_AGENT,timeout = 30,allow_redirects=False)
+                #item['url'] = r.headers['location']
+                #print(item)
+                yield item
+            except:
+                continue
 
 
 
