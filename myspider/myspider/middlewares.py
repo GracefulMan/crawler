@@ -4,10 +4,9 @@
 #
 # See documentation in:
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
-
+count = 0
 from scrapy import signals
-
-
+import requests
 class MyspiderSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
@@ -54,3 +53,15 @@ class MyspiderSpiderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+class ProxyMiddleware(object):
+    def process_request(self,request,spider):
+        global count
+        url = "http://webapi.http.zhimacangku.com/getip?num=1&type=1&pro=&city=0&yys=0&port=1&pack=54328&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions="
+        if count %5000 == 0:
+            r = requests.get(url)
+            proxy_ip = r.text.strip()
+            if len(proxy_ip) < 30:
+                request.meta['proxy'] = proxy_ip
+            count = 1
+        count += 1
